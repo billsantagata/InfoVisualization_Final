@@ -1,0 +1,31 @@
+William Santagata
+Mini-Project 3
+
+My initial sketches envisioned using a map with lines connecting each country geographically, however this proved to be unwieldy. Abstracting the countries by transforming them into nodes made for a more effective visualization and allowed me to take advantage of the proprties of force-directed graphs to cluster nodes together by a certain property.
+
+
+Visualization 1
+================
+For Visualization 1, I created a force-directed graph. The amount of money that a country gives or receives is encoded by the radius of the circle with larger amounts having a larger radius. (I ideally wanted to have the nodes of net-donors be colored green and net-receivers coded red but I was not able to get this to function).
+
+On hovering over a node, the edges showing where that country has donated money to highlight in green. The edges showing money coming into that country darken. (I wanted to make the incoming edges colored red but for some reason my code would only let me do one or the other! You can see this part commented out on lines 117-120.)
+
+The force-directed layout has countries that donate to, or receive money from, a similar set of countries, located closer together. For example, the Baltic states of Estonia, Latvia, and Lithuania are grouped together, and on mousing over each of them you can see that they all receive most of their donations from western European countries like Spain and the United Kingdom.
+
+Visualization 2 (Extra Credit)
+==============================
+The graph for Visualization 2 is similar to that for Visualization 1 except the node radius size is fixed, and most importantly, the node weight is calculated by using Javascript's parseInt() function to convert the three-letter country codes into an integer. The weight is the integer value of the donor country plus the weight of the receiving country. (Using a more complex  hashing function would probably provide a more accurate way to compute this as it would eliminate any collisions).
+
+The resulting graph does cluster countries that donate to the same entities together, as well as countries that receive donations from the same entities together. For example, there is a large cluster on the right of the graph containing the United Kingdom (GBR), New Zealand (NZL), Spain (ESP), among others. Hovering over the nodes shows that they indeed donate to many of the same countries.
+
+On the upper-left of the graph is a cluster composed of Brazil (BRA), India (IND), Thailand (THA), and Lithuania (LTU). These countries for the most part receive, rather than give money (hovering over their nodes shows where they receive from in dark gray, and indeed they receive from mostly the same group of countries).
+
+
+Visualization 3
+================
+For Visualization 3, the edge paths are color coded according to the category of the donation. On mousing over a country's node, the edges representing all donations that that country gave are highlighted. The user therefore can see what countries the selected entity gave to and for what purpose.
+
+Furthermore, because the weight of the nodes is calculated purely by the donation category (assigning arbitrary, distant values to each category), the force-directed nature of the graph will group countries based on the categories of their donations.
+
+All of the countries that only receive and do not donate locate themselves on the perimeter of the graph. All of the countries that donate are clustered in the bottom right. Those countries whose countries donate for only one or two reasons are on the top or bottom of this cluster - for example, Ireland (IRL) gives purely for the purpose of industrial development (green) (See Mouseover 1 Screenshot). Italy (ITA), on the other hand, donates for multiple reasons (see Mouseover 2 Screenshot).
+
